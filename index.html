@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        /* Estilos para el navbar */
+        .navbar {
+            background-color: #000000;
+            padding: 20px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: none;
+        }
+
+        .navbar-brand {
+            font-size: 1.25rem;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-link {
+            font-size: 1.25rem; /* Ajusta el tamaño de la fuente aquí */
+            color: #ffffff;
+            margin-left: 20px;
+            text-decoration: none;
+            padding: 10px 15px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #e0e0e0;
+        }
+
+        /* Estilos para las secciones */
+        .section {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        /* Estilo para la imagen redonda */
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin-left: 20px;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 800px;
+            background-color: #ffffff;
+            padding: 20px;
+        }
+        .container1 {
+            text-align: center;
+            max-width: 1200px;
+            width: 1200px;
+            background-color: #ffffff;
+            padding: 20px;
+        }
+        .container2 {
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 20px;
+}
+
+.about-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.about-item {
+    width: 45%;
+    margin: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: left;
+}
+
+.about-item img {
+    width: 80%; /* Ajusta el ancho al 80% del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    max-width: 150px; /* Establece un tamaño máximo */
+    margin-bottom: 10px;
+}
+
+        .social-icons a {
+            text-decoration: none;
+        }
+
+        .social-icons i {
+            font-size: 1.5rem;
+            margin: 0 10px;
+            color: #000000;
+            transition: color 0.3s;
+        }
+
+        .social-icons i:hover {
+            color: #007bff;
+        }
+
+        .description {
+            margin-top: 20px;
+            color: #6c757d;
+        }
+
+        /* Estilos para los botones */
+        .btn {
+            padding: 10px 20px;
+            border: 2px solid #000000;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+            color: #000000;
+            background-color: #ffffff;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #000000;
+            color: #ffffff;
+        }
+
+        /* Estilos para los contenedores de experiencia y educación */
+        .about-container {
+            display: flex;
+            justify-content: center; /* Centrado horizontal */
+            margin-top: 20px;
+            flex-wrap: wrap; /* Permitir que los elementos se ajusten */
+        }
+
+        .about-item {
+            width: 30%; /* Ancho más amplio */
+            padding: 15px;
+            background-color: #f9f9f9;
+            text-align: center; /* Texto centrado */
+            margin: 10px; /* Espaciado entre contenedores */
+            border: 2px solid #000000; /* Borde negro */
+            border-radius: 5px; /* Bordes redondeados */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra suave */
+        }
+
+        .about-item i {
+            margin-right: 10px;
+            color: #007bff;
+        }
+
+        /* Ajustes para la sección "Acerca de mí" */
+        #about {
+            margin-top: -60px; /* Levanta la sección Acerca de mí */
+            padding-top: 60px; /* Espacio para evitar superposición del navbar */
+        }
+        #contact {
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.container3 {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact-info {
+    margin-top: 20px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.contact-item i {
+    margin-right: 10px;
+    font-size: 1.5rem;
+    color: #0073b1; /* LinkedIn color */
+}
+
+.contact-item a {
+    color: #333;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.contact-item a:hover {
+    text-decoration: underline;
+}
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a class="navbar-brand" href="#">Christian Alvarado</a>
+        <ul class="nav-links">
+            <li><a class="nav-link" href="#" onclick="scrollToSection('about')">Acerca de mí</a></li>
+            <li><a class="nav-link" href="#" onclick="scrollToSection('experience')">Experiencia</a></li>
+            <li><a class="nav-link" href="#" onclick="scrollToSection('projects')">Proyectos</a></li>
+            <li><a class="nav-link" href="#" onclick="scrollToSection('contact')">Contáctame</a></li>
+        </ul>
+    </nav>
+
+    <div class="section" id="profile">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 d-flex justify-content-center">
+                    <img src="img/perfil.jpg" alt="Tu foto" class="profile-img">
+                </div>
+                <div class="col-md-6">
+                    <h2>Christian Alvarado</h2>
+                    <h4>Desarrollador de Software</h4>
+                    <p class="description">
+                        Apasionado por la tecnología y el desarrollo de soluciones innovadoras. Con experiencia en <span>desarrollo web</span> y <span>móvil</span>, me gusta enfrentar nuevos desafíos y aprender continuamente.
+                    </p>
+                    <div class="btn-container my-3">
+                        <button class="btn">Descargar CV</button>
+                        <button class="btn">Contáctame</button>
+                    </div>
+                    <div class="social-icons">
+                        <a href="https://linkedin.com/in/tu-perfil" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/tu-perfil" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://twitter.com/tu-perfil" target="_blank">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.facebook.com/tu-perfil" target="_blank">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="about">
+        <div class="container">
+            <h2>Acerca de mí</h2>
+            <p>Estudiante del último año de la carrera de Ingeniería de Sistemas, especializado en el desarrollo de software en tecnologías como HTML, CSS y JavaScript para crear interfaces de usuario atractivas. Tengo experiencia con frameworks como React y Angular para el desarrollo de aplicaciones web dinámicas y responsivas. Además, estoy familiarizado con PHP y MySQL para el backend, y me interesa explorar Node.js para crear aplicaciones eficientes. También tengo conocimientos en Tailwind CSS, que me permiten diseñar interfaces modernas y estilizadas. Busco aplicar mis habilidades en desarrollo front-end y back-end para contribuir al éxito de proyectos tecnológicos innovadores.</p>
+
+            <div class="about-container">
+                <div class="about-item">
+                    <h3><i class="fas fa-briefcase"></i>Experiencia</h3>
+                    <p>+6 meses como Desarrollador Web</p>
+                    <p>Desarrollo e Innovación</p>
+                </div>
+                <div class="about-item">
+                    <h3><i class="fas fa-graduation-cap"></i>Educación</h3>
+                    <p>+5 años en Ingeniería de Sistemas</p>
+                    <p>Universidad Nacional Federico Villarreal</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="experience">
+        <div class="container1">
+            <h2>Experiencia</h2>
+            <div class="about-container">
+                <div class="about-item">
+                    <h3><i class="fas fa-laptop-code"></i>Desarrollo Front-end</h3>
+                    <p><i class="fas fa-code"></i> HTML <span>Avanzado</span></p>
+                    <p><i class="fas fa-code"></i> CSS <span>Intermedio</span></p>
+                    <p><i class="fas fa-code"></i> JavaScript <span>Intermedio</span></p>
+                    <p><i class="fas fa-code"></i> React <span>Intermedio</span></p>
+                    <p><i class="fas fa-code"></i> Angular <span>Basico</span></p>
+                    <p><i class="fas fa-code"></i> Tailwind CSS <span>Intermedio</span></p>
+                </div>
+                <div class="about-item">
+                    <h3><i class="fas fa-database"></i>Desarrollo Back-end</h3>
+                    <p><i class="fas fa-code"></i> PHP <span>Intermedio</span></p>
+                    <p><i class="fas fa-code"></i> MySQL <span>Intermedio</span></p>
+                    <p><i class="fas fa-code"></i> Node.js <span>Básico</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="projects">
+        <div class="container2">
+            <h2>Proyectos</h2>
+            <div class="about-container">
+                <div class="about-item">
+                    <h3><i class="fas fa-project-diagram"></i> Proyecto 1</h3>
+                    <img src="img/proyecto.jfif" alt="Imagen del Proyecto 1">
+                    <p>Descripción del proyecto 1.</p>
+                </div>
+                <div class="about-item">
+                    <h3><i class="fas fa-project-diagram"></i> Proyecto 2</h3>
+                    <img src="img/proyecto.jfif" alt="Imagen del Proyecto 2">
+                    <p>Descripción del proyecto 2.</p>
+                </div>
+                <div class="about-item">
+                    <h3><i class="fas fa-project-diagram"></i> Proyecto 3</h3>
+                    <img src="img/proyecto.jfif" alt="Imagen del Proyecto 3">
+                    <p>Descripción del proyecto 3.</p>
+                </div>
+                <div class="about-item">
+                    <h3><i class="fas fa-project-diagram"></i> Proyecto 4</h3>
+                    <img src="img/proyecto.jfif" alt="Imagen del Proyecto 4">
+                    <p>Descripción del proyecto 4.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="section" id="contact">
+        <div class="container3">
+            <h2>Contáctame</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:carlos.mendoza.s@tecsup.edu.pe">calvaradob02@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <a href="https://www.linkedin.com/in/tu-perfil" target="_blank">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer style="background-color: #000000; color: #ffffff; padding: 20px 0; text-align: center; margin-top: 40px;">
+        <div class="footer-container">
+            <p>&copy; 2024 Christian Alvarado. Todos los derechos reservados.</p>
+            <div class="social-icons">
+                <a href="https://linkedin.com/in/tu-perfil" target="_blank">
+                    <i class="fab fa-linkedin" style="color: #ffffff; margin: 0 10px;"></i>
+                </a>
+                <a href="https://github.com/tu-perfil" target="_blank">
+                    <i class="fab fa-github" style="color: #ffffff; margin: 0 10px;"></i>
+                </a>
+                <a href="https://twitter.com/tu-perfil" target="_blank">
+                    <i class="fab fa-twitter" style="color: #ffffff; margin: 0 10px;"></i>
+                </a>
+                <a href="https://www.facebook.com/tu-perfil" target="_blank">
+                    <i class="fab fa-facebook-f" style="color: #ffffff; margin: 0 10px;"></i>
+                </a>
+            </div>
+            <p style="margin-top: 10px;">Diseñado con <i class="fas fa-heart" style="color: red;"></i> por Christian Alvarado</p>
+        </div>
+    </footer>
+
+    <script>
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
