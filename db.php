@@ -5,6 +5,7 @@ $dbname = 'portafolio'; // Nombre de la base de datos
 $username = 'root'; // Usuario de la base de datos
 $password = ''; // Contraseña del usuario
 
+
 try {
     // Crear una nueva instancia de PDO
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
